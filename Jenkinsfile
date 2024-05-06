@@ -30,7 +30,7 @@ pipeline {
         stage('Deploy to k8s'){
             steps{
                 script{
-                    kubernetesDeploy (configs: 'deploymentservice.yaml',kubeconfigId: 'k8sconfigpwd', serverUrl: 'https://192.168.58.2)
+                    kubernetesDeploy (configs: 'deploymentservice.yaml',kubeconfigId: 'k8sconfigpwd',  serverUrl: 'https://192.168.58')
                 }
             }
         }
