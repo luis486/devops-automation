@@ -17,5 +17,15 @@ pipeline {
                 }
             }
         }
+        stage('Docker push'){
+            steps {
+                script{
+                    withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
+                    sh 'docker login -u luis486 -p ${dockerhubpwd}'
+                    }
+                    sh 'docker push luis486/devops-integration'
+                }
+            }
+        }
     }
 }
